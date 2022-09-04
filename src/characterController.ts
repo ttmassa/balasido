@@ -1,4 +1,4 @@
-import { TransformNode, ShadowGenerator, Scene, Mesh, UniversalCamera, ArcRotateCamera, Vector3, Quaternion, Ray } from "@babylonjs/core";
+import { TransformNode, ShadowGenerator, Scene, Mesh, UniversalCamera, ArcRotateCamera, Vector3, Quaternion, Ray, ParticleSystem, ActionManager } from "@babylonjs/core";
 
 export class Player extends TransformNode {
     public camera;
@@ -39,6 +39,16 @@ export class Player extends TransformNode {
     private _grounded: boolean;
     private _jumpCount: number = 1;
 
+    //player variables
+    public lanternsLit: number = 1; //num lanterns lit
+    public totalLanterns: number;
+    public win: boolean = false; //whether the game is won
+
+    //sparkler
+    public sparkler: ParticleSystem; // sparkler particle system
+    public sparkLit: boolean = true;
+    public sparkReset: boolean = false;
+    
     constructor(assets, scene: Scene, shadowGenerator: ShadowGenerator, input?) {
         super("player", scene);
         this.scene = scene;
@@ -47,7 +57,8 @@ export class Player extends TransformNode {
         this.mesh = assets.mesh;
         this.mesh.parent = this;
 
-        this.scene.getLightByName("sparklight").parent = this.scene.getTransformNodeByName("Empty");
+        //--COLLISIONS--
+        this.mesh.actionManager = new ActionManager(this.scene);
         
         shadowGenerator.addShadowCaster(assets.mesh); //the player mesh will cast shadows
 

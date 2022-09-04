@@ -229,6 +229,7 @@ class App {
             });
         }
         return loadCharacter().then(assets=> {
+            console.log("load char assets")
             this.assets = assets;
         })
 
@@ -249,6 +250,9 @@ class App {
         //Create the player
         this._player = new Player(this.assets, scene, shadowGenerator, this._input);
         const camera = this._player.activatePlayerCamera();
+
+        //set up lantern collision checks
+        this._environment.checkLanterns(this._player);
     }
 
     private async _goToGame(){

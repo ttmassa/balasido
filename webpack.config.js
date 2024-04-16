@@ -1,16 +1,16 @@
 const path = require("path");
-const fs  = require("fs");
-const HtmlWebpackPlugin = require(html-require-plugin);
-const appDirectory = fs.realPathSync(process.cwd());
+const fs = require("fs");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const appDirectory = fs.realpathSync(process.cwd());
 
 module.exports = {
-    entry: path.resolve(appDirectory, "src/app.ts"), //Chemin vers le principal fichier ts
-    output : {
-        filename: "js/bundleName.js", //nom du fichier javascript qui est crée en mémoire
+    entry: path.resolve(appDirectory, "src/app.ts"), //path to the main .ts file
+    output: {
+        filename: "js/bundleName.js", //name for the js file that is created/compiled in memory
         clean: true,
     },
     resolve: {
-        extensions: [".tsx", ".ts", ".js",]
+        extensions: [".tsx", ".ts", ".js"],
     },
     devServer: {
         host: "0.0.0.0",

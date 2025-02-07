@@ -1,5 +1,6 @@
 {
   "name": "balasido",
+  "homepage": ".",
   "version": "1.0.0",
   "description": "A platfrom game made using Babylon js",
   "main": "app.ts",

@@ -20,8 +20,6 @@ To begin your adventure in Balasido, simply follow these steps:
    ```bash
    npm install
 
-This should create 2 .jar files in the target folder.
-
 3. **Run the Game:**
 
     ```bash

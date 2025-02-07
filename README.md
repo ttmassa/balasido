@@ -24,8 +24,6 @@ This should create 2 .jar files in the target folder.
 
 3. **Run the Game:**
 
-- Once dependencies are installed, start the game by executing
-
     ```bash
     npm start
 

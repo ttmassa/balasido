@@ -76,13 +76,13 @@ export class Environment {
 
     //Load all necessary meshes for the environment
     public async _loadAsset() {
-        const result = await SceneLoader.ImportMeshAsync(null, "./models/", "envSetting.glb", this._scene);
+        const result = await SceneLoader.ImportMeshAsync(null, "https://balasido.s3.eu-north-1.amazonaws.com/", "envSetting.glb", this._scene);
 
         let env = result.meshes[0];
         let allMeshes = env.getChildMeshes();
 
         //loads lantern mesh
-        const res = await SceneLoader.ImportMeshAsync("", "./models/", "lantern.glb", this._scene);
+        const res = await SceneLoader.ImportMeshAsync("", "https://balasido.s3.eu-north-1.amazonaws.com/", "lantern.glb", this._scene);
 
         //extract the actual lantern mesh from the root of the mesh that's imported, dispose of the root
         let lantern = res.meshes[0].getChildren()[0];

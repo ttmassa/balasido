@@ -213,7 +213,7 @@ class App {
 
             outer.rotationQuaternion = new Quaternion(0, 1, 0, 0); // rotate the player mesh 180 since we want to see the back of the player
             
-            return SceneLoader.ImportMeshAsync(null, "./models/", "player.glb", scene).then((result) =>{
+            return SceneLoader.ImportMeshAsync(null, "https://balasido.s3.eu-north-1.amazonaws.com/", "player.glb", scene).then((result) =>{
                 const root = result.meshes[0];
                 //body is our actual player mesh
                 const body = root;
